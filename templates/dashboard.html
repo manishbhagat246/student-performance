@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="https://plus.unsplash.com/premium_photo-1683141316518-70595b251f01?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+                        alt="Logo">
+                </a>
+            </div>
+            <div class="navbar-left ">
+                <center>
+                    <h3>Student data prediction</h3>
+                </center>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="dashboard" style="color: rgb(10, 111, 111);">Dashboard</a></li>
+                    <li><a href="planning">Planning</a></li>
+                    <li><a href="prediction" >Prediction</a></li>
+                    <li><a href="dataloader">Dataloader</a></li>
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <center style="color: aliceblue;">
+        <h2>Dashboard</h2>
+        <div class="about" style="padding: 1rem 6rem;" >
+        <h4>This dashboard provides insightful visualizations that depict the demographic distribution across various categories. Explore the population distribution based on factors such as race, gender, and academic performance. The graphs offer a comprehensive overview, allowing you to analyze and compare the distribution of marks and other relevant data points. Gain valuable insights into the diversity and performance trends within the dataset through these intuitive visual representations.</h4>
+    </div>
+</center>
+    <div id="content">
+        <div class="col-lg-7">
+        <div id="line_chart" ></div>
+       <center>
+        <select id="marksselector" name="marksselector" onchange="updateChart()">
+        <option value="0">Math Marks</option>
+        <option value="1">Reading Marks</option>
+        <option value="2">Writing Marks</option>
+    </select></center> 
+    </div>
+        <div class="col-lg-5">
+    <div id="piechart" ></div>
+    <center>
+    <select  id="FirstGraph" name="FirstGraph" onchange="updateFisrt()">
+        <option value="0">Gender</option>
+        <option value="1">Race</option>
+        <option value="2">Parent</option>
+        <option value="3">Lunch</option>
+        <option value="4">Test Prep Course</option>
+    </select></center> 
+</div>
+    <div class="col-lg-12">
+        <div id="bar_chart" ></div>
+    </div>
+
+</div>
+<div>
+    < input type =  >
+</div>
+    <script>
+        // first chart
+         google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawInitialCharts);
+
+        var dataFirst = [];
+        var chartFirst;
+        var optionFirst = [];
+
+        function drawInitialCharts() {
+            var mathscoreData = {{ maths| tojson | safe }};
+        console.log(typeof (mathscoreData));
+        for (let index = 0; index < mathscoreData.length; index++) {
+            const element = mathscoreData[index];
+            // console.log(element);
+        }
+        var rowData1 = [["Gender", "Counts"],
+        ["Male", {{ male }}],
+        ["Female", {{ female }}]];
+        console.log(rowData1);
+        var rowData2 = [
+            ["Gender", "Counts"],
+            ["Group A", {{ groupA }}],
+            ["Group B", {{ groupB }}],
+            ["Group C", {{ groupC }}],
+            ["Group D", {{ groupD }}],
+            ["Group E", {{ groupE }}]
+    ];
+        var rowData3 = [
+            ["Gender", "Counts"],
+            ["Bachelor's Degree", {{ bachelor }}],
+        ["Master's Degree", {{ master }}],
+            ["Associate's Degree", {{ associate }}],
+            ["High Schoo", {{ high }}],
+            ["Some College", {{ some }}],
+            ["Some High School", {{ someh }}]
+    ]
+        var rowData4 = [
+                ["Gender", "Counts"],
+                ['None', {{ nones }}],
+            ['Completed', {{ completed }}]
+    ]
+        var rowData5 = [
+            ["Gender", "Counts"],
+            ['Standard', {{ standard }}],
+        ['Free', {{ free }}]]
+
+        // Create and populate the dataFirst tables.
+        dataFirst[0] = google.visualization.arrayToDataTable(rowData1);
+        dataFirst[1] = google.visualization.arrayToDataTable(rowData2);
+        dataFirst[2] = google.visualization.arrayToDataTable(rowData3);
+        dataFirst[3] = google.visualization.arrayToDataTable(rowData4);
+        dataFirst[4] = google.visualization.arrayToDataTable(rowData5);
+
+        optionFirst[0] = {
+            title: 'Gender-based Analysis',
+            is3D: true,
+            backgroundColor: 'lightblue', 
+             legend: {
+            textStyle: {
+            color: 'white',  // Set the desired text color for "Male" and "Female"
+                        }
+                    },
+                        };
+        optionFirst[1] = {
+            title: 'Race-based Analysis',
+            is3D: true,
+            backgroundColor: 'lightblue', 
+             legend: {
+            textStyle: {
+            color: 'white',  // Set the desired text color for "Male" and "Female"
+                        }
+                    },
+        };
+        optionFirst[2] = {
+            title: 'Parent Education-based Analysis',
+            is3D: true,
+            backgroundColor: 'lightblue', 
+             legend: {
+            textStyle: {
+            color: 'white',  // Set the desired text color for "Male" and "Female"
+                        }
+                    },
+        };
+        optionFirst[3] = {
+            title: 'Lunch-based Analysis',
+            is3D: true,
+            backgroundColor: 'lightblue', 
+             legend: {
+            textStyle: {
+            color: 'white',  // Set the desired text color for "Male" and "Female"
+                        }
+                    },
+        };
+        optionFirst[4] = {
+            title: 'Test Prep Course-based Analysis',
+            is3D: true,
+            backgroundColor: 'lightblue', 
+             legend: {
+            textStyle: {
+            color: 'white',  // Set the desired text color for "Male" and "Female"
+                        }
+                    },
+        };
+        // Create and draw the visualization.
+
+        chartFirst = new google.visualization.PieChart(document.getElementById('piechart'));
+        chartFirst.draw(dataFirst[0], optionFirst[0]);
+}
+
+        function updateFisrt() {
+            var selector = document.getElementById('FirstGraph');
+            var selectedValue = selector.options[selector.selectedIndex].value;
+            chartFirst.draw(dataFirst[selectedValue], optionFirst[selectedValue]);
+        }
+        // second chart
+        google.charts.load('current', { 'packages': ['corechart','bar'] });
+            google.charts.setOnLoadCallback(drawSecond);
+
+            function drawSecond() {
+                var arr = {{mathm}};
+                var arrf = {{mathf}};
+                const averagem = Math.floor(arr.reduce((sum, value) => sum + value, 0) / arr.length);
+                const averagef = Math.floor(arrf.reduce((sum, value) => sum + value, 0) / arrf.length);
+                console.log(averagem);
+                var readm = {{readm}};
+                var readf = {{readf}};
+                 readm = Math.floor(readm.reduce((sum, value) => sum + value, 0) / arr.length);
+                 readf = Math.floor(readf.reduce((sum, value) => sum + value, 0) / arrf.length);
+                 var writem = {{writem}};
+                var writef = {{writef}};
+                 writem = Math.floor(writem.reduce((sum, value) => sum + value, 0) / arr.length);
+                 writef = Math.floor(writef.reduce((sum, value) => sum + value, 0) / arrf.length);
+                
+                // Create the DataTable
+                var dataSecond = google.visualization.arrayToDataTable([
+          ['Avg grades', 'Male', 'Female'],
+          ['Maths', averagem, averagef],
+          ['Reading', readm, readf],
+          ['Writing', writem, writef]
+          // Add more dataSecond rows as needed
+        ]);
+        var optionSecond = {
+            chartThird: {
+              title: 'Average grades',
+            },
+            bars: 'vertical',
+            vAxis: {format: 'decimal'},
+            height: 400,
+            colors: ['blue',  'red'],
+            backgroundColor: 'lightblue', 
+            titleTextStyle: {
+            color: 'blue',  // Set the desired text color for the title
+            },
+            sliceVisibilityThreshold: 0,  // Ensure the labels are always visible
+            legend: {
+            textStyle: {
+               color: 'white',  // Set the desired text color for "Male" and "Female"
+                }
+                     },
+             };
+                // var optionSecond = {
+                //     title: 'Line Chart of Scores',
+                //     // curveType: 'function',
+                //     // legend: { position: 'bottom' }
+                // };
+
+                var chartSecond = new google.charts.Bar(document.getElementById('bar_chart'));
+
+chartSecond.draw(dataSecond, google.charts.Bar.convertOptions(optionSecond))
+            }
+
+        // third chart
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawThird);
+
+        var data = [];
+        var chartThird;
+        var options = [];
+        function drawThird() {
+            var mathsarr = [['Marks', 'Frequency']].concat({{freq_math}});
+            var readarr = [['Marks', 'Frequency']].concat({{freq_read}});
+            var writearr = [['Marks', 'Frequency']].concat({{freq_write}});
+
+            console.log(mathsarr);
+            console.log(readarr);
+            console.log(writearr);
+            data[0] = google.visualization.arrayToDataTable(mathsarr);
+            data[1] = google.visualization.arrayToDataTable(readarr);
+            data[2] = google.visualization.arrayToDataTable(writearr);
+            options[0] = {
+            hAxis: {
+                title: 'Marks'
+              },
+              vAxis: {
+                title: 'Frequency'
+              },
+            title: 'Maths marks distribution',
+            curveType: 'function',
+                        backgroundColor: 'lightblue', 
+             legend: {
+            textStyle: {
+            color: 'white',  // Set the desired text color for "Male" and "Female"
+                        }
+                    },
+          };
+            options[1] = {
+                hAxis: {
+                    title: 'Marks'
+                },
+                vAxis: {
+                    title: 'Frequency'
+                },
+                title: 'Reading marks distribution',
+                curveType: 'function',
+                            backgroundColor: 'lightblue', 
+             legend: {
+            textStyle: {
+            color: 'white',  // Set the desired text color for "Male" and "Female"
+                        }
+                    },
+            };
+            options[2] = {
+                hAxis: {
+                    title: 'Marks'
+                },
+                vAxis: {
+                    title: 'Frequency'
+                },
+                title: 'Writing marks distribution',
+                curveType: 'function',
+                            backgroundColor: 'lightblue', 
+             legend: {
+            textStyle: {
+            color: 'white',  // Set the desired text color for "Male" and "Female"
+                        }
+                    },
+            };
+
+           chartThird = new google.visualization.LineChart(document.getElementById('line_chart'));
+  
+          chartThird.draw(data[0], options[0]);
+
+        }
+
+    function updateChart() {
+            var selector = document.getElementById('marksselector');
+            var selectedValue = selector.options[selector.selectedIndex].value;
+            chartThird.draw(data[selectedValue], options[selectedValue]);
+        }
+    </script>
+    </body>
+
+</html>

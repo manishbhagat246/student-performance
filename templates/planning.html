@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+    <link rel="stylesheet" href="../static/css/planning.css">
+    <style>
+        .navbar {
+    min-height: 6rem;
+}
+.navbar-brand img {
+    max-height: 200%;
+    padding: 0 1rem;
+}
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="https://plus.unsplash.com/premium_photo-1683141316518-70595b251f01?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+                    alt="Logo">
+                </a>
+            </div>
+            <div class="navbar-left ">
+                <center>
+                    <h3>Student data prediction</h3>
+                </center>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="dashboard">Dashboard</a></li>
+                    <li><a href="planning" style="color: rgb(10, 111, 111);">Planning</a></li>
+                    <li><a href="prediction" >Prediction</a></li>
+                    <li><a href="dataloader">Dataloader</a></li>
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="about">
+        <!-- <center>
+            <p>Welcome to our Prediction Page! Here, you have the opportunity to unlock insights into your potential math,
+                reading, and writing scores by filling out our interactive prediction form. By providing us with details
+                such as your gender, parental education, lunch type, and test prep course completion, our advanced
+                prediction algorithm will generate an estimate of your anticipated scores. Whether you're planning for
+                academic success or simply curious about your potential outcomes, this personalized prediction can
+                offer valuable insights. Don't miss the chance to gain a sneak peek into your future academic
+                achievements. Take a moment to complete the form, and let our predictive analytics provide you with a
+                glimpse into your educational journey!
+            </p>
+        </center> -->
+    </div>
+    <div class="container" id="first">
+       <center><h2>Plan future of your kid</h2></center> 
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="parentEducation">Parent Education:</label>
+                <select class="form-control" id="parentEducation" name="parentEducation" required>
+                    <option value="" disabled selected>Select Parent Education</option>
+                    <option value="some college">Some College</option>
+                    <option value="associate's degree">Associate's Degree</option>
+                    <option value="some high school">Some High School</option>
+                    <option value="bachelor's degree">Bachelor's Degree</option>
+                    <option value="master's degree">Master's Degree</option>
+                    <option value="high school">High School</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="race">Race/ethinicity:</label>
+                <select class="form-control" id="race" name="race" required>
+                    <option value="" disabled selected>Select option</option>
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+            <center><button type="submit" class="btn btn-primary" id="firstbtn">Submit</button></center>
+    </div>
+    <div class="container" id="second">
+        <center><h2>Change options to see best result </h2></center>
+        <div class="form-group">
+            <label for="lunch">Lunch:</label>
+            <select class="form-control" id="lunch" name="lunch" required>
+                <option value="" disabled selected>Select Lunch Type</option>
+                <option value=0>Free/Reduced</option>
+                <option value=1>Standard</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="testPrep">Test Prep Course:</label>
+            <select class="form-control" id="testPrep" name="testPrep" required>
+                <option value="" disabled selected>Select Test Prep Course</option>
+                <option value=0>Completed</option>
+                <option value=1>None</option>
+            </select>
+        </div>
+        <div id="result"></div>
+        <center><button type="submit" class="btn btn-primary" id="secondsub">Submit</button>
+            <button type="submit" class="btn btn btn-danger" id="secondgo">Go back</button></center>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+<script src="../static/js/planning.js"></script>
+</html>

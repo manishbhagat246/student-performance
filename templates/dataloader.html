@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/dataload.css">
+  <title>Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="https://plus.unsplash.com/premium_photo-1683141316518-70595b251f01?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+                    alt="Logo">
+                </a>
+            </div>
+            <div class="navbar-left ">
+                <center>
+                    <h3>Student data prediction</h3>
+                </center>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="dashboard">Dashboard</a></li>
+                    <li><a href="planning">Planning</a></li>
+                    <li><a href="prediction">Prediction</a></li>
+                    <li><a href="dataloader" style="color: rgb(10, 111, 111);">Dataloader</a></li>
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+  <div style="font-size: 2rem; text-align: center;">
+    <p style="font-weight: bold; font-size: 5rem;">Dataloader File</p>
+    <p>A dataloader is a crucial element in predicting academic performance, particularly 
+      in math, reading, and writing. It acts as a link between raw data and predictive models,
+       efficiently loading and organizing datasets for analysis. The dataloader plays a vital 
+       role in managing diverse data sources like student records and socio-economic factors, 
+       ensuring the predictive model has access to a well-structured dataset. Its integration 
+       provides valuable insights into factors influencing academic success, enabling 
+       proactive interventions and personalized support. This fosters a data-driven approach 
+       in education, enhancing student learning outcomes across subjects.
+    </p>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+    <label for="dt_file">Choose Dataset:</label><br>
+   <center><input type="file" id="dt_file" name="dt_file" accept=".csv"/><br></center> 
+    <div class="btn-group">
+      <input type="button" class="btn btn-primary" id="btn_loaddata" name="btn_loaddata" value="Load Dataset" />
+      <input type="button" class="btn btn btn-danger" id="btn_cleardata" name="btn_cleardata" value="Clear Dataset" />
+    </div>
+  </form>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- <script src="../static/js/script.js"></script> -->
+  <script src="../static/js/datload.js"></script>
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+    <link rel="stylesheet" href="../static/css/prediction.css">
+    <style>
+        .navbar {
+    min-height: 6rem;
+}
+.navbar-brand img {
+    max-height: 200%;
+    padding: 0 1rem;
+}
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="https://plus.unsplash.com/premium_photo-1683141316518-70595b251f01?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+                    alt="Logo">
+                </a>
+            </div>
+            <div class="navbar-left ">
+                <center>
+                    <h3>Student data prediction</h3>
+                </center>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="dashboard">Dashboard</a></li>
+                    <li><a href="planning">Planning</a></li>
+                    <li><a href="prediction" style="color: rgb(10, 111, 111);">Prediction</a></li>
+                    <li><a href="dataloader">Dataloader</a></li>
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="about">
+        <div class="about">
+            <center>
+                <p>Welcome to our Student Marks Prediction page! This platform offers you a unique opportunity to explore and predict your potential math, reading, and writing scores based on various influencing factors. By filling out our interactive prediction form, you can gain insights into your expected academic performance.</p>
+        
+                <p>Our advanced prediction algorithm takes into account essential details such as gender, parental education, race/ethnicity, lunch type, and test preparation course completion. This allows us to generate a personalized estimate of your anticipated scores. Whether you're planning for academic success, setting goals, or simply curious about your potential outcomes, our predictive analytics can provide valuable insights.</p>
+        
+                <p>Don't miss the chance to get a sneak peek into your future academic achievements. Take a moment to complete the form, and let our predictive model guide you in understanding your educational journey. Explore the possibilities and make informed decisions to shape your academic path!</p>
+            </center>
+        </div>
+        
+    </div>
+    <div class="container">
+        <!-- <form> -->
+            <h2>Student Marks Prediction</h2>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="parentEducation">Parent Education:</label>
+                <select class="form-control" id="parentEducation" name="parentEducation" required>
+                    <option value="" disabled selected>Select Parent Education</option>
+                    <option value="some college">Some College</option>
+                    <option value="associate's degree">Associate's Degree</option>
+                    <option value="some high school">Some High School</option>
+                    <option value="bachelor's degree">Bachelor's Degree</option>
+                    <option value="master's degree">Master's Degree</option>
+                    <option value="high school">High School</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="race">Race/ethinicity:</label>
+                <select class="form-control" id="race" name="race" required>
+                    <option value="" disabled selected>Select option</option>
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lunch">Lunch:</label>
+                <select class="form-control" id="lunch" name="lunch" required>
+                    <option value="" disabled selected>Select Lunch Type</option>
+                    <option value="standard">Standard</option>
+                    <option value="free/reduced">Free/Reduced</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="testPrep">Test Prep Course:</label>
+                <select class="form-control" id="testPrep" name="testPrep" required>
+                    <option value="" disabled selected>Select Test Prep Course</option>
+                    <option value="completed">Completed</option>
+                    <option value="none">None</option>
+                </select>
+            </div>
+            <div id="result"></div>
+            <center><button type="submit" class="btn btn-primary" id="predictbtn">Submit</button></center>
+        <!-- </form> -->
+    </div>
+
+
+    <div class="prediction">
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+<script src="../static/js/prediction.js"></script>
+</html>
